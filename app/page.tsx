@@ -22,12 +22,20 @@ export default function Home() {
       <Nav />
       <main id="home" className="container">
         <section className="py-16 text-center">
-          <motion.h1 initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}
-            className="text-3xl md:text-5xl font-extrabold">
-            Hi, I’m <span className="text-accent">Irtefa</span> — I build data-driven products.
+          <motion.h1 
+            initial={{ opacity: 0, y: 12 }} 
+            animate={{ opacity: 1, y: 0 }} 
+            transition={{ duration: 0.5 }}
+            className="text-3xl md:text-5xl font-extrabold"
+          >
+            Hi, I'm <span className="text-accent">Irtefa</span> — I build data-driven products.
           </motion.h1>
-          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}
-            className="mt-3 text-muted max-w-2xl mx-auto">
+          <motion.p 
+            initial={{ opacity: 0 }} 
+            animate={{ opacity: 1 }} 
+            transition={{ delay: 0.2 }}
+            className="mt-3 text-muted max-w-2xl mx-auto"
+          >
             {portfolio.bio}
           </motion.p>
           <div className="mt-6 flex items-center justify-center gap-3">
@@ -38,8 +46,13 @@ export default function Home() {
 
         <section id="projects" className="py-10">
           <h2 className="text-xl font-semibold mb-4">Featured Projects</h2>
-          <motion.div variants={container} initial="hidden" whileInView="show" viewport={{ once: true }}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <motion.div 
+            variants={container} 
+            initial="hidden" 
+            whileInView="show" 
+            viewport={{ once: true }}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+          >
             {cards.map((c, i) => (
               <motion.div key={i} variants={item}>
                 <AnimatedCard {...c} />
