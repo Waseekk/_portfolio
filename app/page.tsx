@@ -22,27 +22,25 @@ export default function Home() {
       <Nav />
       <main id="home" className="container">
         <section className="py-16 text-center">
-          <motion.div 
+          <motion.h1
             initial={{ opacity: 0, y: 12 }} 
             animate={{ opacity: 1, y: 0 }} 
             transition={{ duration: 0.5 }}
             className="text-3xl md:text-5xl font-extrabold"
-            role="heading"
-            aria-level={1}
           >
             Hi, I'm <span className="text-accent">Irtefa</span> — I build data-driven products.
-          </motion.div>
-          <motion.div 
+          </motion.h1>
+          <motion.p
             initial={{ opacity: 0 }} 
             animate={{ opacity: 1 }} 
             transition={{ delay: 0.2 }}
             className="mt-3 text-muted max-w-2xl mx-auto"
           >
             {portfolio.bio}
-          </motion.div>
+          </motion.p>
           <div className="mt-6 flex items-center justify-center gap-3">
             <a className="btn btn-primary" href="#projects">View Projects</a>
-            <a className="btn btn-ghost" href="/resume.pdf" target="_blank">Résumé</a>
+            <a className="btn btn-ghost" href="/resume.pdf" target="_blank" rel="noopener noreferrer">Résumé</a>
           </div>
         </section>
 

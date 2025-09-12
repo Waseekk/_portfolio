@@ -10,6 +10,7 @@
     "postinstall": "node -e \"process.exit(0)\""
   },
   "dependencies": {
+    "@types/react": "^18.3.0",
     "framer-motion": "11.2.10",
     "lucide-react": "0.468.0",
     "next": "14.2.5",
@@ -18,7 +19,6 @@
   },
   "devDependencies": {
     "@types/node": "24.3.1",
-    "@types/react": "19.1.12",
     "autoprefixer": "10.4.19",
     "eslint": "8.57.0",
     "eslint-config-next": "14.2.5",
