@@ -1,0 +1,32 @@
+{
+  "bio": "Business Analyst @ MetLife; ex-Data Scientist. NLP, behavior modeling, analytics, and automation.",
+  "projects": [
+    {
+      "name": "YouTube QA Bot",
+      "summary": "Indexes YouTube captions, builds embeddings (FAISS/Pinecone), answers questions.",
+      "stack": ["Python", "FAISS", "OpenAI", "Whisper"],
+      "links": {
+        "demo": "https://your-streamlit-demo.streamlit.app",
+        "code": "https://github.com/your-username/yt-qa-bot"
+      }
+    },
+    {
+      "name": "AI Policy Recommender",
+      "summary": "Recommends insurance policies using similarity + propensity models.",
+      "stack": ["SQL", "Python", "Tableau"],
+      "links": {
+        "demo": "#",
+        "code": "#"
+      }
+    },
+    {
+      "name": "QuoteCraft Pipeline",
+      "summary": "n8n + Supabase workflow for embeddings and AI-assisted posts.",
+      "stack": ["n8n", "Supabase", "OpenAI"],
+      "links": {
+        "demo": "#",
+        "code": "https://github.com/your-username/quotecraft"
+      }
+    }
+  ]
+}
