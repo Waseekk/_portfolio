@@ -1,91 +1,282 @@
 "use client";
+import { useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Nav from "@/components/Nav";
-import AnimatedCard from "@/components/AnimatedCard";
+import TabSection from "@/components/TabSection";
 import ChatbotWidget from "@/components/ChatbotWidget";
+import ProjectModal, { ProjectDetail } from "@/components/ProjectModal";
 import portfolio from "@/app/data/portfolio.json";
+import projectDetails from "@/app/data/projectDetails.json";
 
-const container = { hidden: {}, show: { transition: { staggerChildren: 0.08 } } };
-const item = { hidden: { y: 10, opacity: 0 }, show: { y: 0, opacity: 1 } };
+
+// Map project names to their detail IDs
+const projectIdMap: Record<string, string> = {
+  "Newspaper Sub Assistant Agent": "swiftor",
+  "Multi-Tool Research Bot": "research-bot",
+  "AR License Plate Detection": "license-plate",
+};
 
 export default function Home() {
-  const cards = portfolio.projects.map(p => ({
-    title: p.name,
-    description: p.summary,
-    tags: p.stack,
-    href: p.links.demo,
-    code: p.links.code
-  }));
+  const [selectedProject, setSelectedProject] = useState<ProjectDetail | null>(null);
+
+  function openProjectModal(projectName: string) {
+    const projectId = projectIdMap[projectName];
+    if (projectId && projectDetails[projectId as keyof typeof projectDetails]) {
+      setSelectedProject(projectDetails[projectId as keyof typeof projectDetails] as ProjectDetail);
+    }
+  }
 
   return (
     <>
       <Nav />
       <main id="home" className="container">
-        <section className="py-16 text-center">
-          <motion.h1
-            initial={{ opacity: 0, y: 12 }} 
-            animate={{ opacity: 1, y: 0 }} 
+        {/* Hero Section — Two Column with Photo */}
+        <section className="py-10 md:py-12 flex flex-col-reverse md:flex-row items-center gap-10 md:gap-16">
+          {/* Left: Text */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-3xl md:text-5xl font-extrabold"
+            className="flex-1 text-center md:text-left"
           >
-            Hi, I'm <span className="text-accent">Irtefa</span> — I build data-driven products.
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0 }} 
-            animate={{ opacity: 1 }} 
-            transition={{ delay: 0.2 }}
-            className="mt-3 text-muted max-w-2xl mx-auto"
-          >
-            {portfolio.bio}
-          </motion.p>
-          <div className="mt-6 flex items-center justify-center gap-3">
-            <a className="btn btn-primary" href="#projects">View Projects</a>
-            <a className="btn btn-ghost" href="/resume.pdf" target="_blank" rel="noopener noreferrer">Résumé</a>
-          </div>
-        </section>
+            <h1 className="text-3xl md:text-5xl font-extrabold leading-tight">
+              Hi, I'm <span className="text-accent">Waseek</span>
+              <br />
+              <span className="text-muted text-2xl md:text-3xl font-semibold">
+                AI Engineer
+              </span>
+            </h1>
+            <p className="mt-4 text-muted max-w-xl text-lg leading-relaxed">
+              {portfolio.bio}
+            </p>
+            <div className="mt-8 flex items-center justify-center md:justify-start gap-4">
+              <a className="btn btn-primary text-lg px-6 py-3" href="#projects">
+                View Projects
+              </a>
+              <a
+                className="btn btn-ghost text-lg px-6 py-3"
+                href="/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Resume
+              </a>
+            </div>
+          </motion.div>
 
-        <section id="projects" className="py-10">
-          <h2 className="text-xl font-semibold mb-4">Featured Projects</h2>
-          <motion.div 
-            variants={container} 
-            initial="hidden" 
-            whileInView="show" 
-            viewport={{ once: true }}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+          {/* Right: Photo */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="shrink-0"
           >
-            {cards.map((c, i) => (
-              <motion.div key={i} variants={item}>
-                <AnimatedCard {...c} />
-              </motion.div>
-            ))}
+            <div className="w-64 md:w-80 lg:w-96 rounded-2xl overflow-hidden border-4 border-accent/30 shadow-[0_0_40px_rgba(125,211,252,0.15)]">
+              <Image
+                src="/profile.png"
+                alt="Irtefa Waseek"
+                width={384}
+                height={512}
+                className="w-full h-auto object-contain"
+                priority
+              />
+            </div>
           </motion.div>
         </section>
 
-        <section id="skills" className="py-10">
-          <h2 className="text-xl font-semibold mb-4">Skills</h2>
-          <div className="flex flex-wrap gap-2">
-            {["SQL","Python","Tableau","Next.js","FAISS","LangGraph","n8n","R","PostgreSQL","Azure DevOps"].map(s => (
-              <span key={s} className="pill">{s}</span>
-            ))}
+        {/* About Me */}
+        <section id="about" className="pb-6 -mt-4 md:-mt-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-2xl font-bold mb-4">About Me</h2>
+            <p className="text-muted leading-relaxed max-w-3xl">
+              {portfolio.about}
+            </p>
+          </motion.div>
+        </section>
+
+        {/* Experience — Timeline */}
+        <section id="experience" className="py-12">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-2xl font-bold mb-8">Experience</h2>
+          </motion.div>
+          <div className="relative">
+            {/* Center timeline line */}
+            <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-accent/20 -translate-x-1/2" />
+
+            <div className="space-y-12">
+              {portfolio.experience.map((exp, i) => {
+                const isLeft = i % 2 === 0;
+                return (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, x: isLeft ? -30 : 30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.1, duration: 0.5 }}
+                    className="relative flex items-start"
+                  >
+                    {/* Center dot */}
+                    <motion.div
+                      className="absolute left-1/2 top-3 w-4 h-4 rounded-full border-2 border-accent -translate-x-1/2 z-10 flex items-center justify-center"
+                      initial={{ backgroundColor: "rgba(125,211,252,0.1)" }}
+                      whileInView={{ backgroundColor: "rgba(125,211,252,0.3)", boxShadow: "0 0 12px rgba(125,211,252,0.4)" }}
+                      viewport={{ once: false, amount: 0.8 }}
+                      transition={{ duration: 0.4 }}
+                    >
+                      <div className="w-1.5 h-1.5 rounded-full bg-accent" />
+                    </motion.div>
+
+                    {/* Left content */}
+                    <div className={`w-[calc(50%-1.5rem)] ${isLeft ? "text-right pr-6" : ""}`}>
+                      {isLeft && (
+                        <div className="group relative inline-block text-right">
+                          <span className="text-xs text-accent font-medium">{exp.period}</span>
+                          <h3 className="text-lg font-semibold text-white mt-1">{exp.role}</h3>
+                          <p className="text-muted text-sm">{exp.company}</p>
+                          {(exp as any).summary && (
+                            <div className="opacity-0 max-h-0 overflow-hidden group-hover:opacity-100 group-hover:max-h-60 transition-all duration-300 ease-in-out">
+                              <ul className="mt-3 space-y-1 text-sm text-muted list-disc list-inside text-left">
+                                {((exp as any).summary as string[]).map((point: string, j: number) => (
+                                  <li key={j}>{point}</li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Spacer for center line */}
+                    <div className="w-12 shrink-0" />
+
+                    {/* Right content */}
+                    <div className={`w-[calc(50%-1.5rem)] ${!isLeft ? "pl-6" : ""}`}>
+                      {!isLeft && (
+                        <div className="group relative">
+                          <span className="text-xs text-accent font-medium">{exp.period}</span>
+                          <h3 className="text-lg font-semibold text-white mt-1">{exp.role}</h3>
+                          <p className="text-muted text-sm">{exp.company}</p>
+                          {(exp as any).summary && (
+                            <div className="opacity-0 max-h-0 overflow-hidden group-hover:opacity-100 group-hover:max-h-60 transition-all duration-300 ease-in-out">
+                              <ul className="mt-3 space-y-1 text-sm text-muted list-disc list-inside">
+                                {((exp as any).summary as string[]).map((point: string, j: number) => (
+                                  <li key={j}>{point}</li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
           </div>
         </section>
 
-        <section id="about" className="py-10">
-          <h2 className="text-xl font-semibold mb-2">About</h2>
-          <p className="text-muted max-w-3xl">
-            I ship practical AI/analytics solutions, clean dashboards, and robust SQL. Previously at Radiant Data System and others.
-          </p>
+        {/* Multi-Tab Section */}
+        <TabSection onProjectClick={openProjectModal} />
+
+        {/* Skills Section */}
+        <section id="skills" className="py-12">
+          <h2 className="text-2xl font-bold mb-6">Skills</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="bg-[#0d1117] rounded-lg p-4 border border-[#21262d]">
+              <h3 className="text-sm font-medium text-accent mb-3">Languages</h3>
+              <div className="flex flex-wrap gap-2">
+                {portfolio.skills.languages.map((s) => (
+                  <span key={s} className="pill">{s}</span>
+                ))}
+              </div>
+            </div>
+            <div className="bg-[#0d1117] rounded-lg p-4 border border-[#21262d]">
+              <h3 className="text-sm font-medium text-accent mb-3">AI / ML</h3>
+              <div className="flex flex-wrap gap-2">
+                {portfolio.skills.ai_ml.map((s) => (
+                  <span key={s} className="pill">{s}</span>
+                ))}
+              </div>
+            </div>
+            <div className="bg-[#0d1117] rounded-lg p-4 border border-[#21262d]">
+              <h3 className="text-sm font-medium text-accent mb-3">Data</h3>
+              <div className="flex flex-wrap gap-2">
+                {portfolio.skills.data.map((s) => (
+                  <span key={s} className="pill">{s}</span>
+                ))}
+              </div>
+            </div>
+            <div className="bg-[#0d1117] rounded-lg p-4 border border-[#21262d]">
+              <h3 className="text-sm font-medium text-accent mb-3">Web</h3>
+              <div className="flex flex-wrap gap-2">
+                {portfolio.skills.web.map((s) => (
+                  <span key={s} className="pill">{s}</span>
+                ))}
+              </div>
+            </div>
+            <div className="bg-[#0d1117] rounded-lg p-4 border border-[#21262d]">
+              <h3 className="text-sm font-medium text-accent mb-3">Tools</h3>
+              <div className="flex flex-wrap gap-2">
+                {portfolio.skills.tools.map((s) => (
+                  <span key={s} className="pill">{s}</span>
+                ))}
+              </div>
+            </div>
+          </div>
         </section>
 
-        <section id="contact" className="py-10">
-          <h2 className="text-xl font-semibold mb-2">Contact</h2>
-          <p className="text-muted">Email: <a href="mailto:your@email.com" className="underline">your@email.com</a></p>
+        {/* Contact Section */}
+        <section id="contact" className="py-12">
+          <h2 className="text-xl font-semibold mb-4">Contact</h2>
+          <div className="flex flex-wrap gap-4">
+            <a
+              href="mailto:waseekirtefa@gmail.com"
+              className="btn btn-ghost"
+            >
+              Email
+            </a>
+            <a
+              href="https://github.com/Waseekk"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-ghost"
+            >
+              GitHub
+            </a>
+            <a
+              href="https://linkedin.com/in/irtefa"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-ghost"
+            >
+              LinkedIn
+            </a>
+          </div>
         </section>
       </main>
       <footer className="border-t border-[#151a21] py-8 mt-10">
-        <div className="container text-center text-muted text-sm">© {new Date().getFullYear()} Irtefa Waseek</div>
+        <div className="container text-center text-muted text-sm">
+          &copy; {new Date().getFullYear()} Irtefa Waseek
+        </div>
       </footer>
       <ChatbotWidget />
+
+      {/* Project Modal */}
+      {selectedProject && (
+        <ProjectModal
+          project={selectedProject}
+          onClose={() => setSelectedProject(null)}
+        />
+      )}
     </>
   );
 }

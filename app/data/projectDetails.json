@@ -1,0 +1,87 @@
+{
+  "swiftor": {
+    "id": "swiftor",
+    "name": "Newspaper Sub Assistant Agent",
+    "tagline": "AI-Powered News Translation & Transformation Platform",
+    "description": "An end-to-end AI automation platform that transforms international news content for Bengali audiences. The system extracts articles from any URL, translates with cultural context preservation, and generates publication-ready formatted content in seconds.",
+    "image": "/swiftor-dashboard.png",
+    "stack": ["FastAPI", "React", "TypeScript", "OpenAI GPT-4o", "PostgreSQL", "Redis", "Docker", "Tailwind CSS"],
+    "links": {
+      "demo": "https://swiftor.online",
+      "code": "https://github.com/Waseekk/content-transformer"
+    },
+    "buttonText": "Live App",
+    "metrics": [
+      { "label": "Time per article", "value": "10-15s", "icon": "clock" },
+      { "label": "Daily capacity", "value": "450+", "icon": "trending" },
+      { "label": "Time saved", "value": "99%", "icon": "zap" },
+      { "label": "Concurrent users", "value": "50+", "icon": "users" }
+    ],
+    "features": [
+      "Multi-method content extraction (Trafilatura, Playwright fallback)",
+      "Context-aware Bengali translation preserving journalistic nuance",
+      "Dual format generation (Hard News / Soft News)",
+      "Per-user quota management with token tracking",
+      "Automated news scraping scheduler",
+      "Real-time usage analytics dashboard"
+    ],
+    "challenge": "A news publication needed to process international articles for Bengali audiences. Manual workflow took 2-3 hours per article with inconsistent quality, limiting daily output to 5-8 articles.",
+    "solution": "Built Swiftor - an AI pipeline that extracts, translates, and formats articles in 10-15 seconds. Result: 10x content volume, 99% time reduction, 100% standardized formatting."
+  },
+  "research-bot": {
+    "id": "research-bot",
+    "name": "Multi-Tool Research Bot",
+    "tagline": "LangGraph-Powered Agentic Research Assistant",
+    "description": "A stateful AI research assistant built on LangGraph's directed graph architecture. The system implements a 3-node state machine (conversation_manager → context_llm → enhanced_tools) with intelligent model routing, automatic fallback chains, and tool result caching. Uses Groq's LLaMA 3.3-70B as primary inference with cascading fallbacks to ensure reliability.",
+    "image": "/research-bot.png",
+    "stack": ["Python", "Streamlit", "LangChain", "LangGraph", "Groq", "LLaMA 3.3-70B", "Tavily API", "ArXiv API"],
+    "links": {
+      "demo": "https://multi-tool-research-bot-5pmekpzhczcrdtichq3rw4.streamlit.app/",
+      "code": "https://github.com/Waseekk/Multi-tool-research-bot"
+    },
+    "metrics": [
+      { "label": "Integrated tools", "value": "7+", "icon": "trending" },
+      { "label": "Response time", "value": "<3s", "icon": "clock" },
+      { "label": "Fallback models", "value": "5", "icon": "zap" },
+      { "label": "ArXiv results", "value": "10/query", "icon": "users" }
+    ],
+    "features": [
+      "LangGraph state machine with conditional tool routing",
+      "Task-optimized model selection (reasoning, math, coding, analysis)",
+      "5-model fallback chain with cooldown tracking",
+      "ArXiv paper search (10 results, 10K char summaries)",
+      "Tavily + DuckDuckGo web search with caching",
+      "Safe math expression evaluation via custom calculator tool",
+      "File generator for CSV, JSON, Python, Markdown exports",
+      "Conversation history trimming with topic-based summarization"
+    ],
+    "challenge": "Building a reliable agentic system that gracefully handles LLM rate limits, tool failures, and maintains conversation context across multi-turn research sessions without losing state.",
+    "solution": "Implemented a LangGraph-based architecture with ConversationState TypedDict managing messages, tool caches, and error counts. Added EnhancedLLM class with automatic model switching based on failure cooldowns and task-type routing (e.g., math queries → primary model, reasoning → secondary). Tool results are cached to prevent redundant API calls."
+  },
+  "license-plate": {
+    "id": "license-plate",
+    "name": "AR License Plate Detection",
+    "tagline": "Real-Time Computer Vision for Vehicle Identification",
+    "description": "A computer vision system for detecting and recognizing license plates in real-time video streams. Built for a client project with specific accuracy requirements for Bangladeshi license plate formats.",
+    "stack": ["Python", "OpenCV", "YOLO", "TensorFlow", "NumPy"],
+    "links": {
+      "demo": null,
+      "code": null
+    },
+    "note": "Private (NDA)",
+    "metrics": [
+      { "label": "Detection accuracy", "value": "95%+", "icon": "trending" },
+      { "label": "Processing speed", "value": "30 FPS", "icon": "clock" },
+      { "label": "Plate formats", "value": "Multiple", "icon": "zap" }
+    ],
+    "features": [
+      "Real-time license plate detection from video feeds",
+      "OCR for character recognition on detected plates",
+      "Support for various lighting conditions",
+      "Integration with existing security systems",
+      "Batch processing for recorded footage"
+    ],
+    "challenge": "Client needed automated vehicle identification for security monitoring with high accuracy on Bangladeshi license plate formats.",
+    "solution": "Developed a YOLO-based detection system with custom OCR pipeline achieving 95%+ accuracy at 30 FPS processing speed."
+  }
+}

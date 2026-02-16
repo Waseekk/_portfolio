@@ -6,8 +6,8 @@ type Props = {
   title: string;
   description: string;
   tags?: string[];
-  href?: string;   // demo
-  code?: string;   // GitHub
+  href?: string | null;   // demo
+  code?: string | null;   // GitHub
 };
 
 export default function AnimatedCard({ title, description, tags = [], href, code }: Props) {

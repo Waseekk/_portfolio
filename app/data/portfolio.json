@@ -1,32 +1,162 @@
 {
-  "bio": "Business Analyst @ MetLife; ex-Data Scientist. NLP, behavior modeling, analytics, and automation.",
+  "bio": "Business Analyst @ MetLife | Ex-Data Scientist | Building AI research tools, NLP systems, and data-driven products.",
+  "about": "I'm a data-driven problem solver who builds practical AI and analytics solutions. With a background in Applied Statistics and Energy Science, I bridge the gap between complex data and real-world impact. I specialize in NLP systems, LLM-powered tools, and end-to-end data pipelines — from research prototypes to production-ready applications.",
+  "featured": [
+    {
+      "name": "Newspaper Sub Assistant Agent",
+      "summary": "AI platform for translating and transforming news content with hard/soft news formatting optimized for Bangladeshi Bengali audiences.",
+      "stack": ["FastAPI", "React", "TypeScript", "OpenAI", "Tailwind"],
+      "links": {
+        "demo": "https://swiftor.online",
+        "code": "https://github.com/Waseekk/content-transformer"
+      },
+      "highlight": true,
+      "buttonText": "Live App"
+    },
+    {
+      "name": "Multi-Tool Research Bot",
+      "summary": "AI-powered research assistant integrating ArXiv papers, Wikipedia, web search, code analysis, and automatic file generation for comprehensive research workflows.",
+      "stack": ["Python", "Streamlit", "LangChain", "LangGraph", "Groq"],
+      "links": {
+        "demo": "https://multi-tool-research-bot-5pmekpzhczcrdtichq3rw4.streamlit.app/",
+        "code": "https://github.com/Waseekk/Multi-tool-research-bot"
+      },
+      "highlight": true
+    },
+    {
+      "name": "AR License Plate Detection",
+      "summary": "Computer vision system for real-time license plate detection and recognition. Delivered as a client project with NDA restrictions.",
+      "stack": ["Python", "OpenCV", "YOLO", "TensorFlow"],
+      "links": {
+        "demo": null,
+        "code": null
+      },
+      "highlight": true,
+      "note": "Private (NDA)"
+    }
+  ],
   "projects": [
     {
-      "name": "YouTube QA Bot",
-      "summary": "Indexes YouTube captions, builds embeddings (FAISS/Pinecone), answers questions.",
-      "stack": ["Python", "FAISS", "OpenAI", "Whisper"],
+      "name": "LLM Benchmarking Research",
+      "summary": "Thesis project benchmarking local LLM agents (DeepSeek, Mistral, LLaMA3) for academic research tasks with FAISS vector storage and Ollama integration.",
+      "stack": ["Python", "Streamlit", "FAISS", "Ollama", "LangChain"],
       "links": {
-        "demo": "https://your-streamlit-demo.streamlit.app",
-        "code": "https://github.com/your-username/yt-qa-bot"
+        "demo": null,
+        "code": "https://github.com/Waseekk/LLM-Benchmarking"
       }
     },
     {
-      "name": "AI Policy Recommender",
-      "summary": "Recommends insurance policies using similarity + propensity models.",
-      "stack": ["SQL", "Python", "Tableau"],
+      "name": "PDF Chatbot (DeepSeek)",
+      "summary": "Interactive PDF analysis tool with AI chatbot capabilities, featuring table/image extraction and citation tracking.",
+      "stack": ["Python", "Streamlit", "DeepSeek", "Vector DB"],
       "links": {
-        "demo": "#",
-        "code": "#"
+        "demo": null,
+        "code": "https://github.com/Waseekk/pdf-chatbot"
       }
     },
     {
-      "name": "QuoteCraft Pipeline",
-      "summary": "n8n + Supabase workflow for embeddings and AI-assisted posts.",
-      "stack": ["n8n", "Supabase", "OpenAI"],
+      "name": "Agentic AI Chatbot - Basic",
+      "summary": "Multi-tool chatbot combining ArXiv research papers, Wikipedia articles, and Tavily web search into a unified conversational interface.",
+      "stack": ["Python", "Jupyter", "LangChain"],
       "links": {
-        "demo": "#",
-        "code": "https://github.com/your-username/quotecraft"
+        "demo": "https://waseekk.github.io/Agentic-AI-Chatbot/1.chatbot_basic/",
+        "code": "https://github.com/Waseekk/Agentic-AI-Chatbot/tree/main/1.chatbot_basic"
+      }
+    },
+    {
+      "name": "Agentic AI Chatbot - Advanced",
+      "summary": "Enhanced conversational AI with advanced dialogue management, context retention, and multi-turn reasoning capabilities.",
+      "stack": ["Python", "Jupyter", "LangChain"],
+      "links": {
+        "demo": "https://waseekk.github.io/Agentic-AI-Chatbot/2.%20advanced_chatbot/",
+        "code": "https://github.com/Waseekk/Agentic-AI-Chatbot/tree/main/2.%20advanced_chatbot"
+      }
+    },
+    {
+      "name": "YouTube Bot",
+      "summary": "Extract and analyze transcripts from YouTube videos for content summarization and information retrieval.",
+      "stack": ["Python", "YouTube API"],
+      "links": {
+        "demo": "https://waseekk.github.io/Agentic-AI-Chatbot/3.youtube_bot/",
+        "code": "https://github.com/Waseekk/Agentic-AI-Chatbot/tree/main/3.youtube_bot"
       }
     }
-  ]
+  ],
+  "education": [
+    {
+      "degree": "M.Sc. Applied Statistics & Data Science",
+      "institution": "Jahangirnagar University",
+      "year": "2024"
+    },
+    {
+      "degree": "B.Sc. Energy Science & Engineering",
+      "institution": "Khulna University of Engineering & Technology (KUET)",
+      "year": "2022"
+    },
+    {
+      "degree": "HSC",
+      "institution": "Dhaka College",
+      "year": "2016"
+    },
+    {
+      "degree": "SSC",
+      "institution": "Government Laboratory High School",
+      "year": "2014"
+    }
+  ],
+  "experience": [
+    {
+      "role": "Business Analyst (Contractual)",
+      "company": "MetLife",
+      "period": "Sep 2025 — Present",
+      "summary": ["Gather and analyze requirements for data/AI initiatives", "QA Lead for ETL, report delivery, and data migration", "Assist Data & AI teams via Agile methodology"]
+    },
+    {
+      "role": "Lead AI/ML Engineer",
+      "company": "Data Insightopia",
+      "period": "Jul 2024 — Present",
+      "summary": ["Lead AI automation projects including real-time license detection", "Automated newspaper sub-editing (Agent Swiftor) and script/ad generation (Pixiva)", "Oversee dashboards and data science projects"]
+    },
+    {
+      "role": "Data Analyst",
+      "company": "Radiant Data System / Envision Healthcare System, USA",
+      "period": "Mar 2025 — Aug 2025",
+      "summary": ["Developed Tableau dashboards for healthcare KPIs", "Wrote optimized SQL queries for data extraction and ad-hoc reporting"]
+    },
+    {
+      "role": "Graduate Data Scientist",
+      "company": "Kounsel, CA, USA",
+      "period": "Feb 2024 — Feb 2025",
+      "summary": ["Built ML models for recommendations, custom chatbots and QA systems", "Deployed on Google Cloud & AWS", "Designed analytics pipelines with GTM, Firebase, GA"]
+    },
+    {
+      "role": "Assistant Engineer (Energy)",
+      "company": "Global Renewable Energy Ltd. (GREL)",
+      "period": "May 2023 — Mar 2024",
+      "summary": ["Led renewable energy projects from requirements gathering through implementation"]
+    }
+  ],
+  "research": [
+    {
+      "title": "LLM Benchmarking for Academic Research Tasks",
+      "description": "Master's thesis benchmarking local LLM agents (DeepSeek, Mistral, LLaMA3) on academic research tasks including literature review, summarization, and question answering — using FAISS vector storage and Ollama for local inference.",
+      "tags": ["LLM", "Benchmarking", "NLP", "FAISS", "Ollama"],
+      "type": "Thesis",
+      "link": "https://github.com/Waseekk/LLM-Benchmarking"
+    }
+  ],
+  "skills": {
+    "languages": ["Python", "SQL", "TypeScript", "R"],
+    "ai_ml": ["LangChain", "LangGraph", "FAISS", "Ollama", "OpenAI", "TensorFlow"],
+    "data": ["Pandas", "Tableau", "PostgreSQL", "Vector DBs"],
+    "web": ["FastAPI", "React", "Next.js", "Streamlit"],
+    "tools": ["Docker", "Azure DevOps", "n8n", "Git"]
+  },
+  "github_stats": {
+    "total_repos": 16,
+    "public_repos": 15,
+    "total_stars": 5,
+    "total_forks": 1,
+    "last_updated": "2026-02-03"
+  }
 }
