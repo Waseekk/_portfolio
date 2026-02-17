@@ -8,7 +8,7 @@
     "stack": ["FastAPI", "React", "TypeScript", "OpenAI GPT-4o", "PostgreSQL", "Redis", "Docker", "Tailwind CSS"],
     "links": {
       "demo": "https://swiftor.online",
-      "code": "https://github.com/Waseekk/content-transformer"
+      "code": null
     },
     "buttonText": "Live App",
     "metrics": [

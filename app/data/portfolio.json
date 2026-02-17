@@ -8,7 +8,7 @@
       "stack": ["FastAPI", "React", "TypeScript", "OpenAI", "Tailwind"],
       "links": {
         "demo": "https://swiftor.online",
-        "code": "https://github.com/Waseekk/content-transformer"
+        "code": null
       },
       "highlight": true,
       "buttonText": "Live App"
