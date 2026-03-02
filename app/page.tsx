@@ -1,8 +1,9 @@
 "use client";
-import { useState } from "react";
+import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Nav from "@/components/Nav";
+import { Brain, Landmark, Plane } from "lucide-react";
 import TabSection from "@/components/TabSection";
 import ChatbotWidget from "@/components/ChatbotWidget";
 import ProjectModal, { ProjectDetail } from "@/components/ProjectModal";
@@ -12,13 +13,35 @@ import projectDetails from "@/app/data/projectDetails.json";
 
 // Map project names to their detail IDs
 const projectIdMap: Record<string, string> = {
-  "Newspaper Sub Assistant Agent": "swiftor",
+  "Swiftor": "swiftor",
+  "Pixiva": "pixiva",
   "Multi-Tool Research Bot": "research-bot",
   "AR License Plate Detection": "license-plate",
+  "YouTube QA Bot": "youtube-bot",
 };
 
 export default function Home() {
   const [selectedProject, setSelectedProject] = useState<ProjectDetail | null>(null);
+  const [activeExpIndex, setActiveExpIndex] = useState<number>(-1);
+  const expItemRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  const handleExpMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const mouseY = e.clientY;
+    let closest = -1;
+    let closestDist = Infinity;
+    expItemRefs.current.forEach((ref, i) => {
+      if (!ref) return;
+      const rect = ref.getBoundingClientRect();
+      const dist = Math.abs(mouseY - (rect.top + rect.height / 2));
+      if (dist < closestDist) {
+        closestDist = dist;
+        closest = i;
+      }
+    });
+    setActiveExpIndex(closest);
+  };
+
+  const handleExpMouseLeave = () => setActiveExpIndex(-1);
 
   function openProjectModal(projectName: string) {
     const projectId = projectIdMap[projectName];
@@ -108,16 +131,22 @@ export default function Home() {
           >
             <h2 className="text-2xl font-bold mb-8">Experience</h2>
           </motion.div>
-          <div className="relative">
+          <div
+            className="relative"
+            onMouseMove={handleExpMouseMove}
+            onMouseLeave={handleExpMouseLeave}
+          >
             {/* Center timeline line */}
             <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-accent/20 -translate-x-1/2" />
 
             <div className="space-y-12">
               {portfolio.experience.map((exp, i) => {
                 const isLeft = i % 2 === 0;
+                const isActive = activeExpIndex === i;
                 return (
                   <motion.div
                     key={i}
+                    ref={(el) => { expItemRefs.current[i] = el as HTMLDivElement | null; }}
                     initial={{ opacity: 0, x: isLeft ? -30 : 30 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
@@ -138,12 +167,12 @@ export default function Home() {
                     {/* Left content */}
                     <div className={`w-[calc(50%-1.5rem)] ${isLeft ? "text-right pr-6" : ""}`}>
                       {isLeft && (
-                        <div className="group relative inline-block text-right">
+                        <div className="relative inline-block text-right">
                           <span className="text-xs text-accent font-medium">{exp.period}</span>
                           <h3 className="text-lg font-semibold text-white mt-1">{exp.role}</h3>
                           <p className="text-muted text-sm">{exp.company}</p>
                           {(exp as any).summary && (
-                            <div className="opacity-0 max-h-0 overflow-hidden group-hover:opacity-100 group-hover:max-h-60 transition-all duration-300 ease-in-out">
+                            <div className={`overflow-hidden transition-all duration-300 ease-in-out ${isActive ? "opacity-100 max-h-60" : "opacity-0 max-h-0"}`}>
                               <ul className="mt-3 space-y-1 text-sm text-muted list-disc list-inside text-left">
                                 {((exp as any).summary as string[]).map((point: string, j: number) => (
                                   <li key={j}>{point}</li>
@@ -161,12 +190,12 @@ export default function Home() {
                     {/* Right content */}
                     <div className={`w-[calc(50%-1.5rem)] ${!isLeft ? "pl-6" : ""}`}>
                       {!isLeft && (
-                        <div className="group relative">
+                        <div className="relative">
                           <span className="text-xs text-accent font-medium">{exp.period}</span>
                           <h3 className="text-lg font-semibold text-white mt-1">{exp.role}</h3>
                           <p className="text-muted text-sm">{exp.company}</p>
                           {(exp as any).summary && (
-                            <div className="opacity-0 max-h-0 overflow-hidden group-hover:opacity-100 group-hover:max-h-60 transition-all duration-300 ease-in-out">
+                            <div className={`overflow-hidden transition-all duration-300 ease-in-out ${isActive ? "opacity-100 max-h-60" : "opacity-0 max-h-0"}`}>
                               <ul className="mt-3 space-y-1 text-sm text-muted list-disc list-inside">
                                 {((exp as any).summary as string[]).map((point: string, j: number) => (
                                   <li key={j}>{point}</li>
@@ -232,6 +261,75 @@ export default function Home() {
               </div>
             </div>
           </div>
+        </section>
+
+        {/* Hobbies Section */}
+        <section id="hobbies" className="py-12">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-2xl font-bold mb-8">Beyond Work</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+              {/* Big card — left */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0 }}
+                className="relative overflow-hidden rounded-2xl bg-[#0d1117] border border-[#21262d] hover:border-accent/30 transition-all duration-300 p-8 flex flex-col justify-between min-h-[260px]"
+              >
+                <span className="absolute -top-4 -right-2 text-[7rem] font-black text-white/[0.03] leading-none select-none pointer-events-none">
+                  MIND
+                </span>
+                <Brain size={28} className="text-accent mb-6" />
+                <div>
+                  <h3 className="text-xl font-bold text-white mb-2">{portfolio.hobbies[0].name}</h3>
+                  <p className="text-muted text-sm leading-relaxed">{portfolio.hobbies[0].description}</p>
+                </div>
+              </motion.div>
+
+              {/* Right column — two stacked */}
+              <div className="flex flex-col gap-4">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.1 }}
+                  className="relative overflow-hidden rounded-2xl bg-[#0d1117] border border-[#21262d] hover:border-accent/30 transition-all duration-300 p-6 flex flex-col justify-between flex-1"
+                >
+                  <span className="absolute -top-3 -right-1 text-[5rem] font-black text-white/[0.03] leading-none select-none pointer-events-none">
+                    FUTURE
+                  </span>
+                  <Landmark size={22} className="text-accent mb-4" />
+                  <div>
+                    <h3 className="text-base font-bold text-white mb-1">{portfolio.hobbies[1].name}</h3>
+                    <p className="text-muted text-sm leading-relaxed">{portfolio.hobbies[1].description}</p>
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2 }}
+                  className="relative overflow-hidden rounded-2xl bg-[#0d1117] border border-[#21262d] hover:border-accent/30 transition-all duration-300 p-6 flex flex-col justify-between flex-1"
+                >
+                  <span className="absolute -top-3 -right-1 text-[5rem] font-black text-white/[0.03] leading-none select-none pointer-events-none">
+                    GO
+                  </span>
+                  <Plane size={22} className="text-accent mb-4" />
+                  <div>
+                    <h3 className="text-base font-bold text-white mb-1">{portfolio.hobbies[2].name}</h3>
+                    <p className="text-muted text-sm leading-relaxed">{portfolio.hobbies[2].description}</p>
+                  </div>
+                </motion.div>
+              </div>
+
+            </div>
+          </motion.div>
         </section>
 
         {/* Contact Section */}

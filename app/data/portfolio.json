@@ -1,9 +1,9 @@
 {
   "bio": "Business Analyst @ MetLife | Ex-Data Scientist | Building AI research tools, NLP systems, and data-driven products.",
-  "about": "I'm a data-driven problem solver who builds practical AI and analytics solutions. With a background in Applied Statistics and Energy Science, I bridge the gap between complex data and real-world impact. I specialize in NLP systems, LLM-powered tools, and end-to-end data pipelines — from research prototypes to production-ready applications.",
+  "about": "I enjoy building things that actually solve problems — whether that's an AI tool, a data pipeline, or an analytics dashboard. My background mixes Applied Statistics, Energy Engineering, and hands-on ML, and I've worked across startups, remote contracts, and enterprise teams. Outside of work, I'm usually tinkering with a side project or going down a rabbit hole on something new.",
   "featured": [
     {
-      "name": "Newspaper Sub Assistant Agent",
+      "name": "Swiftor",
       "summary": "AI platform for translating and transforming news content with hard/soft news formatting optimized for Bangladeshi Bengali audiences.",
       "stack": ["FastAPI", "React", "TypeScript", "OpenAI", "Tailwind"],
       "links": {
@@ -11,17 +11,20 @@
         "code": null
       },
       "highlight": true,
-      "buttonText": "Live App"
+      "buttonText": "Live App",
+      "section": "notable"
     },
     {
-      "name": "Multi-Tool Research Bot",
-      "summary": "AI-powered research assistant integrating ArXiv papers, Wikipedia, web search, code analysis, and automatic file generation for comprehensive research workflows.",
-      "stack": ["Python", "Streamlit", "LangChain", "LangGraph", "Groq"],
+      "name": "Pixiva",
+      "summary": "AI-powered image enhancement platform for automating visual content generation and transformation for advertising and media production workflows.",
+      "stack": ["AI", "Computer Vision", "Image Processing"],
       "links": {
-        "demo": "https://multi-tool-research-bot-5pmekpzhczcrdtichq3rw4.streamlit.app/",
-        "code": "https://github.com/Waseekk/Multi-tool-research-bot"
+        "demo": "https://pixiva.net",
+        "code": null
       },
-      "highlight": true
+      "highlight": true,
+      "buttonText": "Live App",
+      "section": "notable"
     },
     {
       "name": "AR License Plate Detection",
@@ -32,7 +35,30 @@
         "code": null
       },
       "highlight": true,
-      "note": "Private (NDA)"
+      "note": "Private (NDA)",
+      "section": "notable"
+    },
+    {
+      "name": "Multi-Tool Research Bot",
+      "summary": "AI-powered research assistant integrating ArXiv papers, Wikipedia, web search, code analysis, and automatic file generation for comprehensive research workflows.",
+      "stack": ["Python", "Streamlit", "LangChain", "LangGraph", "Groq"],
+      "links": {
+        "demo": "https://multi-tool-research-bot-5pmekpzhczcrdtichq3rw4.streamlit.app/",
+        "code": "https://github.com/Waseekk/Multi-tool-research-bot"
+      },
+      "highlight": true,
+      "section": "pet"
+    },
+    {
+      "name": "YouTube QA Bot",
+      "summary": "AI-powered YouTube video analysis tool that indexes transcripts into a FAISS vector store for intelligent Q&A with timestamped source citations.",
+      "stack": ["Python", "Streamlit", "LangChain", "FAISS", "Groq", "OpenAI"],
+      "links": {
+        "demo": "https://agentic-ai-chatbot-dkhyd9c6bj2kmdc88ffmzh.streamlit.app/",
+        "code": "https://github.com/Waseekk/Agentic-AI-Chatbot"
+      },
+      "highlight": true,
+      "section": "pet"
     }
   ],
   "projects": [
@@ -55,30 +81,12 @@
       }
     },
     {
-      "name": "Agentic AI Chatbot - Basic",
-      "summary": "Multi-tool chatbot combining ArXiv research papers, Wikipedia articles, and Tavily web search into a unified conversational interface.",
-      "stack": ["Python", "Jupyter", "LangChain"],
-      "links": {
-        "demo": "https://waseekk.github.io/Agentic-AI-Chatbot/1.chatbot_basic/",
-        "code": "https://github.com/Waseekk/Agentic-AI-Chatbot/tree/main/1.chatbot_basic"
-      }
-    },
-    {
-      "name": "Agentic AI Chatbot - Advanced",
+      "name": "Agentic AI Chatbot",
       "summary": "Enhanced conversational AI with advanced dialogue management, context retention, and multi-turn reasoning capabilities.",
       "stack": ["Python", "Jupyter", "LangChain"],
       "links": {
         "demo": "https://waseekk.github.io/Agentic-AI-Chatbot/2.%20advanced_chatbot/",
         "code": "https://github.com/Waseekk/Agentic-AI-Chatbot/tree/main/2.%20advanced_chatbot"
-      }
-    },
-    {
-      "name": "YouTube Bot",
-      "summary": "Extract and analyze transcripts from YouTube videos for content summarization and information retrieval.",
-      "stack": ["Python", "YouTube API"],
-      "links": {
-        "demo": "https://waseekk.github.io/Agentic-AI-Chatbot/3.youtube_bot/",
-        "code": "https://github.com/Waseekk/Agentic-AI-Chatbot/tree/main/3.youtube_bot"
       }
     }
   ],
@@ -94,49 +102,63 @@
       "year": "2022"
     },
     {
-      "degree": "HSC",
+      "degree": "Higher Secondary Certificate (HSC)",
       "institution": "Dhaka College",
       "year": "2016"
     },
     {
-      "degree": "SSC",
+      "degree": "Secondary School Certificate (SSC)",
       "institution": "Government Laboratory High School",
       "year": "2014"
     }
   ],
   "experience": [
     {
-      "role": "Business Analyst (Contractual)",
-      "company": "MetLife",
-      "period": "Sep 2025 — Present",
-      "summary": ["Gather and analyze requirements for data/AI initiatives", "QA Lead for ETL, report delivery, and data migration", "Assist Data & AI teams via Agile methodology"]
+      "role": "Business Analyst (Data & AI)",
+      "company": "MetLife Bangladesh (Contractual)",
+      "period": "Aug 2025 — Present",
+      "summary": ["Built a Python-based data validation tool that reduced a weeks-long manual process to a single day during an Informatica-to-Azure Synapse migration", "Worked closely with Data Engineering, AI/ML, and Business teams using Agile methodology — running sprints, managing backlogs, and translating business needs into clear technical requirements", "Contributed to the planning of an AI-powered product recommendation system and new features for the OneByMetLife app", "Assisted in data quality checks and reporting across production dashboards and ETL pipelines"]
     },
     {
-      "role": "Lead AI/ML Engineer",
+      "role": "AI Automation Engineer",
       "company": "Data Insightopia",
       "period": "Jul 2024 — Present",
-      "summary": ["Lead AI automation projects including real-time license detection", "Automated newspaper sub-editing (Agent Swiftor) and script/ad generation (Pixiva)", "Oversee dashboards and data science projects"]
+      "summary": ["Built Swiftor, an AI platform for automated newspaper sub-editing, using OpenAI and rule-based agents with support for multiple user profiles and output styles", "Developed a YOLO-based license plate detection model for Bengali plates and delivered it as a commercial product", "Contributed to Pixiva, an AI video ad generation tool, automating the full script-to-video process using Veo 3 API and n8n workflows", "Contributed to a proof-of-concept geospatial tax compliance dashboard for Bangladesh's National Board of Revenue", "Delivered freelance ML projects for clients, including predictive models using ensemble and deep learning methods"]
     },
     {
       "role": "Data Analyst",
-      "company": "Radiant Data System / Envision Healthcare System, USA",
+      "company": "Radiant Data System · Envision Healthcare, USA",
       "period": "Mar 2025 — Aug 2025",
-      "summary": ["Developed Tableau dashboards for healthcare KPIs", "Wrote optimized SQL queries for data extraction and ad-hoc reporting"]
+      "summary": ["Built Tableau dashboards and PostgreSQL queries to support operational, financial, and claims reporting for a US medical insurance pipeline", "Analyzed insurance claims denial patterns by service type, treatment timeline, and payer to help the team improve revenue outcomes", "Tracked physician usage of an AI medical scribe platform and reported on adoption trends"]
     },
     {
       "role": "Graduate Data Scientist",
       "company": "Kounsel, CA, USA",
-      "period": "Feb 2024 — Feb 2025",
-      "summary": ["Built ML models for recommendations, custom chatbots and QA systems", "Deployed on Google Cloud & AWS", "Designed analytics pipelines with GTM, Firebase, GA"]
+      "period": "Jun 2024 — Feb 2025",
+      "summary": ["Built an internal AI assistant using RAG over Confluence documentation, allowing employees to get answers from company knowledge through simple conversation", "Built a system that communicates with customers and books calendar appointments based on consultant availability", "Set up a lead generation analytics pipeline connecting GA4, GTM, Firebase, and AWS to track and improve marketing performance", "Built a self-serve GA4 dashboard to help the team monitor campaign results and make faster decisions"]
     },
     {
-      "role": "Assistant Engineer (Energy)",
+      "role": "Assistant Engineer",
       "company": "Global Renewable Energy Ltd. (GREL)",
-      "period": "May 2023 — Mar 2024",
-      "summary": ["Led renewable energy projects from requirements gathering through implementation"]
+      "period": "Dec 2022 — May 2024",
+      "summary": ["Led the full installation of a 62.1 kWp commercial solar system and carried out technical sizing and analysis for two additional projects using PVsyst, HOMER, and Excel", "Built an automated financial modeling tool in Excel for cost and return analysis, replacing a slow manual process for each new proposal", "Conducted ROI and cost-benefit analysis for renewable energy proposals to support business decisions", "Researched hybrid microgrid and waste-to-energy systems alongside MSc thesis work, connecting academic study with real industry problems"]
     }
   ],
   "research": [
+    {
+      "title": "RAG-Based Scholarly Assistant for Automated Research Paper Analysis and Multi-LLM Benchmarking",
+      "description": "Published at IDAA 2025 (Atlantis Press, Springer Nature). Presents a RAG-based system for automated research paper analysis with multi-LLM benchmarking using DeepSeek, Mistral, and LLaMA3. Includes vector knowledge storage, citation network generation, and discussion summarization.",
+      "tags": ["RAG", "LLM", "Benchmarking", "NLP", "Springer Nature"],
+      "type": "Publication",
+      "link": null
+    },
+    {
+      "title": "Integrated Machine Learning and Economic Risk Modeling for Reliability-Centered Asset Management in Electrical Distribution Networks",
+      "description": "Under review at IEOM 2026. Applies ML and economic risk modeling to reliability-centered asset management in electrical distribution networks.",
+      "tags": ["Machine Learning", "Risk Modeling", "Asset Management", "Energy"],
+      "type": "Under Review",
+      "link": null
+    },
     {
       "title": "LLM Benchmarking for Academic Research Tasks",
       "description": "Master's thesis benchmarking local LLM agents (DeepSeek, Mistral, LLaMA3) on academic research tasks including literature review, summarization, and question answering — using FAISS vector storage and Ollama for local inference.",
@@ -146,12 +168,30 @@
     }
   ],
   "skills": {
-    "languages": ["Python", "SQL", "TypeScript", "R"],
-    "ai_ml": ["LangChain", "LangGraph", "FAISS", "Ollama", "OpenAI", "TensorFlow"],
-    "data": ["Pandas", "Tableau", "PostgreSQL", "Vector DBs"],
+    "languages": ["Python", "SQL", "R", "TypeScript", "Bash"],
+    "ai_ml": ["LangChain", "LangGraph", "FAISS", "Ollama", "OpenAI", "TensorFlow", "PyTorch", "Scikit-learn", "XGBoost"],
+    "data": ["Pandas", "Tableau", "PostgreSQL", "MySQL", "MongoDB", "Firebase", "Vector DBs", "Matplotlib", "Seaborn"],
     "web": ["FastAPI", "React", "Next.js", "Streamlit"],
-    "tools": ["Docker", "Azure DevOps", "n8n", "Git"]
+    "tools": ["Docker", "Azure DevOps", "Azure Synapse", "n8n", "Git", "Google Analytics 4", "Google Tag Manager"]
   },
+  "hobbies": [
+    {
+      "name": "Human Behaviour & Socio-Economics",
+      "description": "I'm fascinated by why people behave the way they do and how economic systems shape those behaviours. From social psychology to policy impact and global inequality — it's the kind of rabbit hole I happily fall into."
+    },
+    {
+      "name": "Civilization & Predictive History",
+      "description": "History isn't just the past — it's a playbook. I'm drawn to understanding how civilizations rise and fall, and whether those patterns can help us predict where we're heading next."
+    },
+    {
+      "name": "Travelling",
+      "description": "Every now and then I need to step away and just breathe — a quiet beach, a hilltop with a view, somewhere that has nothing to do with a screen. It's how I recharge."
+    },
+    {
+      "name": "Predictive History",
+      "description": "I follow the idea that history isn't random — that patterns repeat and the future can, to some extent, be modelled. Inspired by Asimov's psycho-history, I'm drawn to channels and thinkers who ask: what do civilisations, geopolitics, and human behaviour tell us about where we're heading?"
+    }
+  ],
   "github_stats": {
     "total_repos": 16,
     "public_repos": 15,
