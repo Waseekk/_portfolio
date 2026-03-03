@@ -3,6 +3,7 @@ import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Nav from "@/components/Nav";
+import CursorFire from "@/components/CursorFire";
 import { Brain, Landmark, Plane } from "lucide-react";
 import TabSection from "@/components/TabSection";
 import ChatbotWidget from "@/components/ChatbotWidget";
@@ -52,16 +53,17 @@ export default function Home() {
 
   return (
     <>
+      <CursorFire />
       <Nav />
       <main id="home" className="container">
         {/* Hero Section — Two Column with Photo */}
-        <section className="py-10 md:py-12 flex flex-col-reverse md:flex-row items-center gap-10 md:gap-16">
+        <section className="py-10 md:py-12 flex flex-col-reverse md:flex-row items-start gap-10 md:gap-16">
           {/* Left: Text */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
-            className="flex-1 text-center md:text-left"
+            className="flex-1 text-center md:text-left md:pt-6"
           >
             <h1 className="text-3xl md:text-5xl font-extrabold leading-tight">
               Hi, I'm <span className="text-accent">Waseek</span>
@@ -101,7 +103,7 @@ export default function Home() {
                 alt="Irtefa Waseek"
                 width={384}
                 height={512}
-                className="w-full h-auto object-contain"
+                className="w-full h-auto object-cover object-top"
                 priority
               />
             </div>
@@ -109,7 +111,7 @@ export default function Home() {
         </section>
 
         {/* About Me */}
-        <section id="about" className="pb-6 -mt-4 md:-mt-8">
+        <section id="about" className="pb-6 -mt-16 md:-mt-28">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
